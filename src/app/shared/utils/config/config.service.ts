@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
 import { environment } from 'src/environments/environment'
+import { LogDecorator } from '../../decorators/log/log.decorator'
 
 @Injectable()
 export class ConfigService {
@@ -32,9 +33,13 @@ export class ConfigService {
   isDevmode() {
     return this._configFile === 'development'
   }
+
+  @LogDecorator()
   getApi(key: string): string {
     return this._config["api_endpoints"][key]
   }
+
+  @LogDecorator()
   get(key: any) {
     return this._config[key]
   }

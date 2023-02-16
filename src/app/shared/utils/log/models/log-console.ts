@@ -1,8 +1,8 @@
-import { LogEntry } from "./log.entry";
-import { Observable, of } from "rxjs";
+import { LogEntry } from "./log.entry"
+import { Observable, of } from "rxjs"
 
-import { LogPublisher } from "./log-publisher";
-import { LogLevel } from "../services/log.service";
+import { LogPublisher } from "./log-publisher"
+import { LogLevel } from "../services/log.service"
 
 export class LogConsole extends LogPublisher {
     log(entry: LogEntry): Observable<boolean> {
@@ -21,10 +21,10 @@ export class LogConsole extends LogPublisher {
                 console.log(entry.buildLogString())
                 break
         }
-        return of(true);
+        return of(true)
     }
     
     clear(): Observable<boolean> {
-        return of(true);
+        return of(true)
     }
 }

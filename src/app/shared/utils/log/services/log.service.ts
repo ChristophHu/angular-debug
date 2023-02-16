@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { ConfigService } from '../../config/config.service';
-import { LogEntry } from '../models/log.entry';
-import { LogPublisher } from '../models/log-publisher';
-import { LogPublisherService } from "./log-publisher.service";
+import { Injectable } from '@angular/core'
+import { ConfigService } from '../../config/config.service'
+import { LogEntry } from '../models/log.entry'
+import { LogPublisher } from '../models/log-publisher'
+import { LogPublisherService } from "./log-publisher.service"
 
 export enum LogLevel {
   All,
@@ -29,51 +29,54 @@ export class LogService {
   }
 
   static log(component: string, ...optionalParams: any[]): void {
-    this.logger(LogLevel.Info, component, optionalParams);
+    this.logger(LogLevel.Info, component, optionalParams)
   }
 
   static info(component: string, ...optionalParams: any[]): void {
-    this.logger(LogLevel.Info, component, optionalParams);
+    this.logger(LogLevel.Info, component, optionalParams)
   }
 
   static debug(component: string, ...optionalParams: any[]): void {
-    this.logger(LogLevel.Debug, component, optionalParams);
+    this.logger(LogLevel.Debug, component, optionalParams)
   }
 
   static warn(component: string, ...optionalParams: any[]): void {
-    this.logger(LogLevel.Warn, component, optionalParams);
+    this.logger(LogLevel.Warn, component, optionalParams)
   }
 
   static error(component: string, ...optionalParams: any[]): void {
-    this.logger(LogLevel.Error, component, optionalParams);
+    this.logger(LogLevel.Error, component, optionalParams)
   }
 
   static fatal(component: string, ...optionalParams: any[]): void {
-    this.logger(LogLevel.Fatal, component, optionalParams);
+    this.logger(LogLevel.Fatal, component, optionalParams)
   }
 
   static logger(level: LogLevel, component: string, content: any[]) {
     if (this.shouldLog(level)) {
-      let entry: LogEntry = new LogEntry();
-      entry.component = component;
-      entry.level = level;
-      entry.content = content;
-      entry.logWithDate = this.isLogDate;
+      let entry: LogEntry = new LogEntry()
+      entry.component = component
+      entry.level = level
+      entry.content = content
+      entry.logWithDate = this.isLogDate
 
-      for (let logger of LogService.publisher) {
-        logger.log(entry).subscribe((response: boolean) => {
-        });
+      if (LogService.publisher) {
+        for (let logger of LogService.publisher) {
+          logger.log(entry).subscribe((response: boolean) => {
+            
+          })
+        }
       }
     }
   }
 
 
   static shouldLog(level: LogLevel): boolean {
-    let ret: boolean = false;
+    let ret: boolean = false
     if ((level >= this.logLevel && level !== LogLevel.Off) || this.logLevel === LogLevel.All) {
-        ret = true;
+        ret = true
     }
-    return ret;
+    return ret
   }
 }
 
