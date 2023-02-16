@@ -1,27 +1,27 @@
 {
-    "debugging": true,
-  
-    "api_endpoints": {
-      "user": "api/v1/user"
-    },
+  "debugging": true,
 
-    "log_level": "0",
-    "log_date": true,
-    "log_config": [
-      {
-        "loggerName": "console",
-        "loggerLocation": "",
-        "isActive":  true
-      },
-      {
-        "loggerName": "localstorage",
-        "loggerLocation": "logging",
-        "isActive": true
-      },
-      {
-        "loggerName": "webapi",
-        "loggerLocation": "/api/log",
-        "isActive": false
-      }
-    ]
-  }
+  "api_endpoints": {
+    "user": "api/v1/user"
+  },
+
+  "log_level": "0",
+  "log_date": true,
+  "log_config": [
+    {
+      "loggerName": "console",
+      "loggerLocation": "",
+      "isActive":  true
+    },
+    {
+      "loggerName": "localstorage",
+      "loggerLocation": "logging",
+      "isActive": true
+    },
+    {
+      "loggerName": "webapi",
+      "loggerLocation": "/api/log",
+      "isActive": false
+    }
+  ]
+}

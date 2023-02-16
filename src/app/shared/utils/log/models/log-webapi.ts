@@ -17,6 +17,7 @@ export class LogWebApi extends LogPublisher {
         .pipe(
             map((response: any) => {
                 // response.json()
+                console.log(response)
             }),
             catchError(this.handleErrors)
         )
