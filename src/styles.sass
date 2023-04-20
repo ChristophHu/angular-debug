@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+*
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    
+body
+    .debug .debug-item-hide
+        display: block
+    &:not(.debug) .debug-item-hide
+        display: hidden

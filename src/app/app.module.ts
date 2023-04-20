@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ConfigModule } from './shared/utils/config/config.module';
 import { ConfigService } from './shared/utils/config/config.service';
 import { LogModule } from './shared/utils/log/log.module';
+import { DebugModeModule } from './shared/components/debug-mode/debug-mode.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { LogModule } from './shared/utils/log/log.module';
   imports: [
     BrowserModule,
     LogModule,
-    ConfigModule
+    ConfigModule,
+    DebugModeModule
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]
